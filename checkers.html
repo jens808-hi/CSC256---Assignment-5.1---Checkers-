@@ -1,0 +1,48 @@
+<!--Doctype html - The 1st tag tells the browser that this is an HTML5 webpage-->
+<!DOCTYPE html>
+<!--The 2nd tag on our html webpages is the HTML tag; language = English is automatically added by VS Code -->
+<html lang="en">
+<!--The 3rd tag of our html webpage is the head tag; it tells the browser about the content of the
+page and to expect pretty much any character from any language (primarily for browser and search engines) --> 
+<head>
+    <!--The 4th tag is the meta charset tag, which tells the browser what character set to use -->
+    <meta charset="UTF-8">
+    <!--The 5th tag is the viewport meta name tag, which controls the layout on mobile browsers;
+    page responsiveness on phones, tablets, and computers. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--The 6th tag is the title tag, which is the text that appears in the browser tab -->
+    <title>Checkers Game</title>
+    <!-- The 7th tag is the link tag, which is a best practice for linking to an external CSS file; 
+    rel = relationship, href = hypertext reference -->
+    <link rel="stylesheet" href="./checkers.css">
+    <!-- The 8th tag is the script tag, which is a best practice for linking to an external 
+     JavaScript file; src = source -->
+     <!-- defer makes sure the HTML loads before JavaScript runs -->
+    <script src="./checkers.js" defer></script>
+<!-- the closing head tag is the last line of our head section that closes the head tag -->
+</head>
+<!--The 7th tag is the body section tag, which contains the visible page content 
+    (text, images, videos) of the webpage -->
+<body>
+    <!--The main tag is a best practice for organizing the main content of the page, with
+    the id attribute which page is a best practice for styling a specific part of the text content of the page -->
+    <main>
+        <!-- Main heading for our checkers game.-->
+        <h1> Checkers Game </h1>
+
+        <!-- This paragraph gives the player instructions.-->
+        <p>
+            Click a checker, then click another square to move it one space.
+        </p>
+        <!-- This is the container where JavaScript will create a 8x8 checkers board. -->
+        <div id="checkers-board"></div>
+        <!-- This message area will tell the player what to do.-->
+        <p id="game-message">
+            Select a checker to begin!
+        </p>
+    <!-- The closing main tag -->
+    </main>
+<!--The closing body tag, which is the last line of our .html page that closes the body tag -->
+</body>
+<!--The closing html tag, which is the last line of our .html page thatcloses the html tag -->
+</html>
