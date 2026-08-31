@@ -1,0 +1,1098 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Removes default browser spacing */
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================================
+   BODY / GALAXY BACKGROUND
+   ========================================================= */
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+    background-image: url("./Images/Galaxy_space.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #020018;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(40, 0, 100, 0.15),
+            rgba(0, 0, 30, 0.55)
+        );
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+#page {
+    width: min(1000px, 94%);
+    margin: 0 auto;
+    padding: 40px 0 80px;
+}
+
+.intro-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.intro-header h1 {
+    margin: 0;
+
+    font-size: clamp(
+        2.2rem,
+        6vw,
+        4.5rem
+    );
+
+    color: #ffe600;
+
+    text-shadow:
+        0 0 5px #ff8800,
+        0 0 15px #ff5500,
+        0 0 25px #7a00ff;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #cceeff;
+
+    text-shadow:
+        0 0 8px #0066ff;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.galaxy-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 30px;
+}
+
+.galaxy-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.galaxy-nav a {
+    display: block;
+
+    padding: 12px 20px;
+
+    border: 2px solid rgba(80, 210, 255, 0.75);
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 10, 90, 0.95),
+            rgba(5, 5, 45, 0.95)
+        );
+
+    color: #ffffff;
+
+    font-weight: bold;
+    text-decoration: none;
+
+    text-shadow:
+        0 0 5px #00c8ff,
+        0 0 10px #0066ff;
+
+    box-shadow:
+        0 0 10px rgba(0, 200, 255, 0.4),
+        inset 0 0 10px rgba(100, 50, 255, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.galaxy-nav a:hover {
+    transform: translateY(-3px) scale(1.04);
+
+    color: #ffe600;
+    border-color: #ffe600;
+
+    box-shadow:
+        0 0 10px #00c8ff,
+        0 0 25px #0066ff,
+        0 0 40px #7a00ff;
+}
+
+#block-section {
+    text-align: center;
+    padding: 20px;
+}
+
+#block-message {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+
+    text-shadow:
+        0 0 5px #00c8ff,
+        0 0 15px #0066ff,
+        0 0 20px #7a00ff;
+
+    margin-top: 20px;
+}
+.question-block {
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    cursor: pointer;
+    display: inline-block;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.question-block img {
+    width: 190px;
+    height: 190px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(
+            0 0 8px rgba(255, 220, 0, 0.7)
+        );
+
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+.question-block:hover img {
+    transform: scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 20px #ffe600
+        );
+}
+
+.question-block:active img {
+    transform:
+        translateY(12px)
+        scale(0.96);
+}
+
+.question-block.block-hit img {
+    animation: blockBounce 0.45s ease;
+}
+
+@keyframes blockBounce {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(18px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    75% {
+        transform: translateY(4px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+.item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 450px;
+    max-height: 800px;
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 10, 70, 0.92),
+            rgba(5, 5, 40, 0.92)
+        );
+
+    border: 2px solid rgba(80, 210, 255, 0.75);
+    border-radius: 24px;
+
+    box-shadow:
+        0 0 15px rgba(0, 200, 255, 0.4),
+        0 0 40px rgba(90, 0, 255, 0.3),
+        inset 0 0 25px rgba(100, 50, 255, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    animation:
+        cardAppear 0.6s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.name-card h2 {
+    color: #ffe600;
+    font-size: 2rem;
+
+    text-shadow:
+        0 0 8px #ff8800,
+        0 0 20px #ff4400;
+}
+
+.name-card p {
+    font-size: 1.10rem;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.item-card h2 {
+    margin-top: 0;
+    color: #ffe600;
+
+    text-shadow:
+        0 0 8px #ff8800;
+}
+
+.card-image {
+    width: min(220px, 100%);
+    max-width: 320px;
+    max-height: 420px;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+    border: 3px solid rgba(122, 11, 10, 0.7);
+
+    box-shadow:
+        0 0 15px rgba(0, 200, 255, 0.6);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.card-image:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 30px #00d9ff;
+}
+
+.card-instruction {
+    margin-top: 15px;
+    color: #8deaff;
+    font-weight: bold;
+}
+
+.peach-caption {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+
+#hit-counter {
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    color: #ffffff;
+}
+
+#hit-number {
+    color: #ffe600;
+    font-size: 1.8rem;
+
+    text-shadow:
+        0 0 8px #ff8800;
+}
+
+
+#reset-message {
+    text-align: center;
+
+    color: #5dff8a;
+
+    font-weight: bold;
+    font-size: 1.2rem;
+
+    text-shadow:
+        0 0 10px #00ff66;
+}
+
+.hidden {
+    display: none;
+}
+
+/* =========================================================
+   MARIO VIDEO IMAGE
+   ========================================================= */
+
+.mario-image {
+    display: block;
+
+    width: 130px;
+    max-width: 130px;
+    height: auto;
+
+    margin-left: -10px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 10px rgba(0, 200, 255, 0.6),
+        0 0 25px rgba(100, 0, 255, 0.4);
+
+    opacity: 0.9;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.mario-image-link {
+    display: inline-block;
+
+    width: 130px;
+    max-width: 130px;
+
+    margin-top: 30px;
+    margin-left: 10px;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+.mario-image-link:hover {
+    transform: scale(1.08);
+
+    filter:
+        drop-shadow(0 0 10px #00d9ff),
+        drop-shadow(0 0 20px #7a00ff);
+}
+
+.mario-image-link:hover .mario-image {
+    opacity: 1;
+
+    box-shadow:
+        0 0 15px #00d9ff,
+        0 0 30px #7a00ff;
+}
+
+.mario-image-link:focus {
+    outline: 3px solid #ffe600;
+    outline-offset: 5px;
+}
+
+.mario-video-caption {
+    margin: 15px 0 0 -90px;
+
+    font-size: 0.85rem;
+
+    color: #8deaff;
+
+    text-shadow:
+        0 0 8px #0066ff;
+
+    white-space: nowrap;
+}
+
+/* =========================================================
+   SLIDESHOW
+   ========================================================= */
+
+.slideshow-image {
+    display: block;
+
+    width: min(600px, 90%);
+    height: 350px;
+
+    object-fit: fill;
+
+    margin: 0 auto;
+
+    border: 3px solid #00c8ff;
+    border-radius: 16px;
+
+    padding: 6px;
+
+    background: rgba(5, 5, 45, 0.8);
+
+    box-shadow:
+        0 0 10px #00c8ff,
+        0 0 25px #0066ff,
+        0 0 40px #7a00ff;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.slideshow-image:hover {
+    transform: scale(1.02);
+
+    border-color: #ffe600;
+
+    box-shadow:
+        0 0 10px #ffe600,
+        0 0 25px #00c8ff,
+        0 0 45px #7a00ff;
+}
+
+.slideshow-video {
+    display: block;
+
+    width: min(600px, 90%);
+    height: 350px;
+
+    object-fit: fill;
+
+    padding: 1px;
+
+    background: rgba(0, 0, 30, 0.5);
+
+    border: 3px solid rgba(80, 210, 255, 0.8);
+    border-radius: 24px;
+
+    box-shadow:
+        0 0 12px #00d9ff,
+        0 0 25px #0066ff,
+        0 0 35px #7a00ff;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.slideshow-video:hover {
+    transform: scale(1.02);
+
+    border-color: #ffe600;
+
+    box-shadow:
+        0 0 10px #ffe600,
+        0 0 25px #00c8ff,
+        0 0 45px #7a00ff;
+}
+
+.slideshow-controls {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+.slide-button {
+    padding: 12px 25px;
+
+    border: 2px solid #00c8ff;
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 10, 90, 0.95),
+            rgba(5, 5, 45, 0.95)
+        );
+
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-shadow:
+        0 0 5px #00c8ff,
+        0 0 10px #0066ff;
+
+    box-shadow:
+        0 0 10px rgba(0, 200, 255, 0.4),
+        inset 0 0 10px rgba(100, 50, 255, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.slide-button:hover {
+    color: #5dff8a;
+
+    border-color: #5dff8a;
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 10px #00ff66,
+        0 0 25px #00c8ff,
+        0 0 40px #7a00ff;
+}
+
+.slide-button:active {
+    transform: scale(0.97);
+}
+
+.question-title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    color: #ffe600;
+
+    font-size: clamp(
+        1rem,
+        3vw,
+        2.2rem
+    );
+
+    text-shadow:
+        0 0 5px #ff8800,
+        0 0 15px #ff5500,
+        0 0 25px #7a00ff;
+}
+
+.slideshow-title {
+    margin-bottom: 10px;
+
+    color: #ffe600;
+
+    text-shadow:
+        0 0 5px #ff8800,
+        0 0 15px #ff5500,
+        0 0 25px #7a00ff;
+}
+
+.slideshow-instructions {
+    max-width: 700px;
+
+    margin: 0 auto 20px;
+
+    color: #8deaff;
+
+    font-size: 1.05rem;
+    line-height: 1.5;
+
+    text-shadow:
+        0 0 5px #0066ff,
+        0 0 10px #00c8ff;
+}
+
+#slideshow-image-container {
+    width: min(600px, 90%);
+    height: 350px;
+
+    display: flex;
+
+    margin: 0 auto;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+#slideshow-message {
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 5px #00c8ff,
+        0 0 10px #0066ff,
+        0 0 20px #7a00ff;
+
+    margin-bottom: 20px;
+}
+
+#slideshow-description {
+    width: min(700px, 90%);
+
+    min-height: 50px;
+
+    margin: 25px auto 0;
+
+    text-align: center;
+
+    color: #f1f1ea;
+
+    font-size: 1.05rem;
+    font-weight: bold;
+    line-height: 1.5;
+
+    text-shadow:
+        0 0 5px #00c8ff,
+        0 0 10px #0066ff,
+        0 0 15px #7a00ff;
+}
+
+.mario-slideshow .slideshow-container {
+    width: 100%;
+
+    text-align: center;
+
+    margin: 30px auto 40px;
+}
+.movie-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#movie-input {
+    width: min(500px, 90%);
+
+    padding: 12px;
+
+    border: 2px solid #00c8ff;
+    border-radius: 15px;
+
+    background: rgba(5, 5, 45, 0.9);
+
+    color: #ffffff;
+
+    font-size: 1rem;
+
+    text-align: center;
+}
+.movie-section #movie-input {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.movie-section .slideshow-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.movie-section #movie-list {
+    text-align: left;
+
+    width: 80%;
+
+    margin: 20px auto;
+}
+
+#movie-input::placeholder {
+    color: #8deaff;
+}
+
+#movie-list {
+    text-align: left;
+
+    width: 90%;
+
+    margin: 20px auto;
+}
+
+#movie-list li {
+    margin: 12px 0;
+
+    color: #ffffff;
+
+    font-size: 1.1rem;
+
+    text-shadow:
+        0 0 5px #0066ff;
+}
+
+#movie-message {
+    color: #8deaff;
+}
+
+/* =========================================================
+   CHECKERS GAME SETUP
+   ========================================================= */
+
+.game-section {
+    width: min(800px, 94%);
+
+    margin: 40px auto;
+
+    padding: 25px;
+
+    text-align: center;
+
+    /* Neon blue border */
+    border: 2px solid #00c8ff;
+
+    /* Rounded corners */
+    border-radius: 20px;
+
+    /* Dark space/Mario style background */
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 10, 70, 0.92),
+            rgba(5, 5, 40, 0.92)
+        );
+
+    /* Neon glow around the game */
+    box-shadow:
+        0 0 15px rgba(0, 200, 255, 0.4),
+        0 0 40px rgba(90, 0, 255, 0.3);
+}
+
+#game-message {
+
+    margin: 20px auto;
+
+    padding: 15px;
+
+    color: #ffffff;
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    /* Mario yellow text */
+    text-shadow:
+        0 0 5px #00c8ff,
+        0 0 15px #0066ff,
+        0 0 20px #7a00ff;
+}
+
+
+/* Designs the stylin for the Checkers Board - 8 columns x 8 rows = 64 squares creates the checkerboard. */
+#checkers-board {
+
+    /* Makes the board a square */
+    width: min(600px, 90vw);
+
+    height: min(600px, 90vw);
+
+    /* Creates an 8 x 8 grid */
+    display: grid;
+
+    grid-template-columns: repeat(8, 1fr);
+
+    grid-template-rows: repeat(8, 1fr);
+
+    /* Centers the board */
+    margin: 20px auto;
+
+    /* Neon border around the board */
+    border: 5px solid #00c8ff;
+
+    /* Rounded outside corners */
+    border-radius: 12px;
+
+    /* Neon glow */
+    box-shadow:
+        0 0 10px #00c8ff,
+        0 0 25px #0066ff,
+        0 0 40px #7a00ff;
+
+    /* Prevents anything from sticking outside */
+    overflow: hidden;
+}
+
+/* Styles the squares on the board. */
+.checker-square {
+
+    /* Centers the checker pieces */
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    /* Makes the mouse look like it can click the square */
+    cursor: pointer;
+
+    /* Small animation when clicked */
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+
+/* light checkerboard squares */
+.light-square {
+
+    background: #ffe6a7;
+}
+
+
+/* DARK checkerboard squares - using Mario-style red instead of traditional checkerboard colors. */
+.dark-square {
+
+    background:
+        linear-gradient(
+            135deg,
+            #b51212,
+            #650000
+        );
+}
+
+
+/* Makes a square glow when the mouse moves over it. */
+.checker-square:hover {
+
+    box-shadow:
+        inset 0 0 15px #ffe600;
+
+    transform: scale(0.96);
+}
+
+
+/* Styling for all checker pieces. */
+.checker-piece {
+
+    width: 70%;
+
+    height: 70%;
+
+    border-radius: 50%;
+
+    /* Makes the piece look clickable.*/
+    cursor: pointer;
+
+    /* Adds a little Mario-style glow.*/
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.5);
+
+    /* Smooth animation when selected.*/
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+/* Red pieces represent Player 1.*/
+.red-piece {
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #ff5555,
+            #d00000,
+            #650000
+        );
+
+    border: 3px solid #ffcc00;
+
+    box-shadow:
+        0 0 8px #ff0000,
+        0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Blue pieces represent Player 2, matches the Galaxy theme.*/
+.blue-piece {
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #66ddff,
+            #0066ff,
+            #001f66
+        );
+
+    border: 3px solid #ffe600;
+
+    box-shadow:
+        0 0 8px #00c8ff,
+        0 0 15px rgba(0, 200, 255, 0.5);
+}
+
+/* When the player clicks a checker piece, a yellow glow lets the player know which piece they selected.*/
+.selected {
+
+    transform: scale(1.15);
+
+    box-shadow:
+        0 0 10px #ffe600,
+        0 0 25px #ff8800,
+        0 0 35px #00c8ff !important;
+}
+
+/* Footer styling that matches Mario/Galaxy theme.*/
+footer {
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: #8deaff;
+
+    font-size: 0.9rem;
+
+    text-shadow:
+        0 0 5px #0066ff;
+}
+
+
+/* For mobile responsiveness -makes the game fit better on smaller screens.*/
+@media (max-width: 600px) {
+
+    #checkers-board {
+
+        width: 92vw;
+
+        height: 92vw;
+
+        border-width: 3px;
+    }
+
+    .game-section {
+
+        padding: 15px;
+    }
+
+    #game-message {
+
+        font-size: 1rem;
+    }
+
+}
+
+/* Follows my Mario Adventure Game button styling */
+.checkers-reset-button {
+
+    /* Button size */
+    padding: 12px 25px;
+
+    /* Mario Galaxy neon border */
+    border: 2px solid #00c8ff;
+
+    border-radius: 15px;
+
+    /* Dark galaxy-style background */
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 10, 90, 0.95),
+            rgba(5, 5, 45, 0.95)
+        );
+
+    /* White text */
+    color: #ffffff;
+
+    /* Text styling */
+    font-size: 1rem;
+    font-weight: bold;
+
+    /* Makes the button clickable */
+    cursor: pointer;
+
+    /* Mario Galaxy blue glow around the text */
+    text-shadow:
+        0 0 5px #00c8ff,
+        0 0 10px #0066ff;
+
+    /* Soft blue/purple glow */
+    box-shadow:
+        0 0 10px rgba(0, 200, 255, 0.4),
+        inset 0 0 10px rgba(100, 50, 255, 0.2);
+
+    /* Smooth hover animation */
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.checkers-reset-button:hover {
+
+    /* Makes the button slightly larger */
+    transform: translateY(-3px) scale(1.05);
+
+    /* Mario Galaxy yellow text */
+    color: #ffe600;
+
+    /* Yellow neon border */
+    border-color: #ffe600;
+
+    /* BIG galaxy glow */
+    box-shadow:
+        0 0 10px #ffe600,
+        0 0 25px #00c8ff,
+        0 0 40px #0066ff,
+        0 0 60px #7a00ff;
+}
+
+.checkers-reset-button:active {
+
+    /* Button briefly gets smaller when clicked */
+    transform: translateY(0) scale(0.97);
+
+}
+
+/* CHECKERS HELP BUTTON */
+
+
+
+
